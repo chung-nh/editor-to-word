@@ -51,18 +51,18 @@ const Home = () => {
       <main className="flex flex-col items-center justify-center flex-1 w-full">
         <div className="mb-5">TinyMce example:</div>
         <div className="flex justify-around w-full mb-5">
-          <button
+          {/* <button
             className="px-5 border-2 border-solid rounded-sm cursor-pointer "
             onClick={switchToDemoEnglish}
           >
             use demo english
-          </button>
-          <button
+          </button> */}
+          {/* <button
             className="px-5 border-2 border-solid rounded-sm cursor-pointer "
             onClick={switchToDemoChinese}
           >
             use demo chinese
-          </button>
+          </button> */}
         </div>
 
         <Editor
