@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "build": "turbo run build",
+    "build": "turbo run build && ls",
     "dev": "turbo run dev --parallel",
     "test": "turbo run test",
     "lint": "turbo run lint",
