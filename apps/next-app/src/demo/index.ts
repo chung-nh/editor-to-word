@@ -1,5 +1,5 @@
 export const demo = `<h1>Hello Editor!</h1>
-<p>If you have any question please visit this repo <strong><span style="color: #e03e2d;"><a style="color: #e03e2d;" href="https://github.com/byoungd/editor-to-word">editor-to-word</a></span></strong>.</p>
+<p>If you have any question please visit this repo <strong><span style="color: #e03e2d;"></span></strong>.</p>
 <p>Paste <span style="color: #e03e2d;">text</span> here or write them...</p>
 <h2><span style="text-decoration: line-through;">Found a bug</span>?</h2>
 <p>If you think you have found a bug please create an issue on the GitHub repo to report it to the developers.</p>
