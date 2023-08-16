@@ -4,6 +4,7 @@ import { CustomTagStyleMap, Node } from '../types';
 import { isFilledArray } from '../utils';
 import { tableCreator } from './table';
 import { calcTextRunStyle, getChildrenByTextRun } from './text';
+import { imageCreator } from './image';
 
 export const contentBuilder = async (
   node: Node,
@@ -19,6 +20,7 @@ export const contentBuilder = async (
   const isText = type === TagType.text && content;
   const isLink = name === TagType.link;
   const isTable = name === TagType.table;
+  const isImage = name === TagType.img;
 
   const isNormalParagraphWithChildren =
     !isLink &&
@@ -43,6 +45,9 @@ export const contentBuilder = async (
   } else if (isTable) {
     const table = await tableCreator(node, tagStyleMap);
     return table;
+  } else if (isImage) {
+    const image = await imageCreator(node);
+    return image;
   } else {
     return null;
   }

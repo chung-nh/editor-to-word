@@ -75,6 +75,7 @@ export const ElementCreator = async (
       ps.push(p as Paragraph);
     }
   }
+  console.log('ps12222', ps)
   // const ps = tags
   //   .map((node: Node) => {
   //     return contentBuilder(node, tagStyleMap);
@@ -100,7 +101,11 @@ export const genDocument = async (
 
   const ast: Node[] = htmlToAST(html);
 
+  console.log('ast', ast)
+
   const paragraphs = await ElementCreator(ast, styleMap);
+  console.log('paragraphs', paragraphs)
+
   const {
     orientation,
     topMargin,
@@ -136,6 +141,7 @@ export const genDocument = async (
 
   if (header) {
     const ast = parse(header) as Node[];
+    console.log('header', ast)
 
     section.headers = {
       default: new Header({
@@ -175,6 +181,7 @@ export const exportHtmlToDocx = async (
   docName = 'doc',
   options?: IExportOption
 ) => {
+  console.log('exportHtmlToDocx')
   const doc = await genDocument(trimHtml(html), options);
   exportAsDocx(doc, docName);
   return doc;

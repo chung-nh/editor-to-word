@@ -1,5 +1,6 @@
-import { demo, demo1 } from '../demo'
-import { exportHtmlToDocx, exportMultiDocsAsZip } from 'editor-to-word'
+import { demo, demo1, header } from '../demo'
+// import { exportHtmlToDocx, exportMultiDocsAsZip } from 'editor-to-word'
+import { exportHtmlToDocx, exportMultiDocsAsZip } from './../../../../packages/editorToWord'
 import { useRef, useState } from 'react'
 
 import { Editor } from '@tinymce/tinymce-react'
@@ -37,7 +38,8 @@ const Home = () => {
   const handleDownload = () => {
     if (editorRef.current) {
       const html = editorRef.current.getContent()
-      exportHtmlToDocx(html, 'test')
+      const timeString = Date.parse(new Date().toString()).toString()
+      exportHtmlToDocx(html, 'test_' + timeString, { layout: { header: header } })
     }
   }
 
@@ -49,7 +51,8 @@ const Home = () => {
       </Head>
 
       <main className="flex flex-col items-center justify-center flex-1 w-full">
-        <div className="mb-5">TinyMce example:</div>
+        <div dangerouslySetInnerHTML={{ __html: header }}></div>
+
         <div className="flex justify-around w-full mb-5">
           {/* <button
             className="px-5 border-2 border-solid rounded-sm cursor-pointer "
@@ -95,12 +98,12 @@ const Home = () => {
           >
             download single file
           </button>
-          <button
+          {/* <button
             className="px-5 border-2 border-solid rounded-sm cursor-pointer "
             onClick={handleDownloadMulti}
           >
             download two copy
-          </button>
+          </button> */}
         </div>
       </main>
     </div>
